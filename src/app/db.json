@@ -1,15 +1,8 @@
 {
   "users": [
     {
-      "id": 1,
-      "name": "Ly Minh Thong",
-      "email": "lminhthong@tma.com.vn",
-      "phone": "03630978571",
-      "title": "Full Stack Js Developer"
-    },
-    {
       "id": 2,
-      "name": "Nguyen Ngoc Bao",
+      "name": "Nguyen Ngoc Bao @@@",
       "email": "nngocbao@tma.com.vn",
       "phone": "03638538551",
       "title": "Fullstack developer"
@@ -34,13 +27,6 @@
       "email": "tdtrung@tma.com.vn",
       "title": "Tester",
       "id": 5
-    },
-    {
-      "name": "Le Thanh Phong",
-      "phone": "03638985080",
-      "email": "ltphong@tma.com.vn",
-      "title": "Manager",
-      "id": 6
     }
   ]
 }

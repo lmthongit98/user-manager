@@ -22,9 +22,9 @@ export class UsersComponent implements OnInit {
   }
 
   deleteUser(user:User){
-    this.userService.deleteUser(user.id).subscribe(() => {
+    confirm('Are you sure you want to delete ' + user.name + ' ?') ? this.userService.deleteUser(user.id).subscribe(() => {
       this.users = this.users.filter(u => u != user);
-    });
+    }) : -1;
   }
 
 }

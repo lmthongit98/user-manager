@@ -10,10 +10,10 @@ import { AddUserComponent } from './add-user/add-user.component';
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'users', component: UsersComponent, canActivate: [UserGuard]},
-  { path: 'detail/:id', component: UserDetailComponent},
+  { path: 'detail/:id', component: UserDetailComponent, canActivate: [UserGuard]},
   {path: 'login', component: LoginComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  {path: 'add', component: AddUserComponent}
+  {path: 'add', component: AddUserComponent, canActivate: [UserGuard]}
 
 ];
 

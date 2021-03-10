@@ -9,6 +9,10 @@ import { User } from '../models/user';
 })
 export class UserService {
 
+  login_status = {
+    isLogin: false
+  }
+
   private usersUrl = 'http://localhost:3000/users';  // URL to web api
 
   httpOptions = {
@@ -50,6 +54,7 @@ private handleError<T>(operation = 'operation', result?: T) {
     return this.http.get<User>(url)
     .pipe(catchError(this.handleError));
   }
+
 
   public addUser(newUser: User): Observable<User> {
     const url = this.usersUrl

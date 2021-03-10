@@ -1,3 +1,4 @@
+import { UserService } from './../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
   public password = '';
   public errorLogin = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public userService: UserService) { }
 
   ngOnInit(): void {
   }
@@ -20,6 +21,7 @@ export class LoginComponent implements OnInit {
   onLogin(){
     if(this.username == 'admin' && this.password =='admin'){
       this.errorLogin = false;
+      this.userService.login_status.isLogin = true;
       localStorage.setItem('username', 'admin');
       this.router.navigate(['/users']);
 
