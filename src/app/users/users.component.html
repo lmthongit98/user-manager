@@ -1,0 +1,19 @@
+<table class="table bg-light">
+  <thead>
+    <tr>
+      <th>STT</th>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; let i = index">
+      <td scope="row">{{i + 1}}</td>
+      <td>{{user.name}}</td>
+      <td><button (click)="deleteUser(user)" class="btn btn-danger">Delete</button></td>
+      <td><button routerLink="/detail/{{user.id}}" class="btn btn-success">See Detail</button></td>
+    </tr>
+  </tbody>
+</table>
+<button [routerLink]="['/add']" routerLinkActive="router-link-active"  class="btn btn-primary">Add User</button>

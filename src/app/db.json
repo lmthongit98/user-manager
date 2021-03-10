@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Ly Minh Thong",
+      "email": "lminhthong@tma.com.vn",
+      "phone": "03630978571",
+      "title": "Full Stack Js Developer"
+    },
+    {
+      "id": 2,
+      "name": "Nguyen Ngoc Bao",
+      "email": "nngocbao@tma.com.vn",
+      "phone": "03638538551",
+      "title": "Fullstack developer"
+    },
+    {
+      "id": 3,
+      "name": "Luong Kieu Thien",
+      "email": "lkthien@tma.com.vn",
+      "phone": "03638985080",
+      "title": "Senior Font-end Developer"
+    },
+    {
+      "name": "Nguyen Dinh Hoang",
+      "phone": "03638985090",
+      "email": "ndhoang@tma.com.vn",
+      "title": "Java Developers",
+      "id": 4
+    },
+    {
+      "name": "Trieu Duc Trung",
+      "phone": "03638985073",
+      "email": "tdtrung@tma.com.vn",
+      "title": "Tester",
+      "id": 5
+    },
+    {
+      "name": "Le Thanh Phong",
+      "phone": "03638985080",
+      "email": "ltphong@tma.com.vn",
+      "title": "Manager",
+      "id": 6
+    }
+  ]
+}

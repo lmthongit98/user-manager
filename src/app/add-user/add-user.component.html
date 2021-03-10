@@ -1,0 +1,62 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div class="container">
+    <h1>New User</h1>
+    <p>Please fill in this form to create an new user.</p>
+    <hr>
+
+    <label for="name"><b>Name</b></label>
+    <input formControlName="name" type="text" placeholder="Enter Name" id="email" required>
+    <div *ngIf="(name? name.invalid : false) && ((name? name.dirty : false) || (name? name.touched : false))"
+      class="alert alert-danger">
+      <div *ngIf="name && name.errors ? name && name.errors.required: false">
+        Name is required.
+      </div>
+      <div *ngIf="name && name.errors  ? name.errors.minlength : false">
+        Name must be at least 4 characters long.
+      </div>
+    </div>
+
+    <label for="email"><b>Email</b></label>
+    <input formControlName="email" type="email" placeholder="Enter Email" id="email" required>
+
+    <div *ngIf="(email? email.invalid : false) && ((email? email.dirty : false) || (email? email.touched : false))"
+      class="alert alert-danger">
+
+      <div *ngIf="email && email.errors ? email && email.errors.required: false">
+        Email is required.
+      </div>
+
+    </div>
+
+    <label for="phone"><b>Phone</b></label>
+    <input formControlName="phone" type="text" placeholder="Enter Phone" id="phone" required>
+
+    <div *ngIf="(phone? phone.invalid : false) && ((phone? phone.dirty : false) || (phone? phone.touched : false))"
+      class="alert alert-danger">
+      <div *ngIf="phone && phone.errors ? phone && phone.errors.required: false">
+        Phone is required.
+      </div>
+      <div *ngIf="phone && phone.errors  ? phone.errors.minlength : false">
+        Name must be at least 10 characters long.
+      </div>
+    </div>
+
+    <label for="title"><b>Title</b></label>
+    <input formControlName="title" type="text" placeholder="Enter title" id="title" required>
+    <div *ngIf="(title? title.invalid : false) && ((title? title.dirty : false) || (title? title.touched : false))"
+    class="alert alert-danger">
+
+    <div *ngIf="title && title.errors ? title && title.errors.required: false">
+      Title is required.
+    </div>
+
+  </div>
+    <hr>
+
+    <button  [disabled] = "!userForm.valid" type="submit" class="registerbtn">Submit</button>
+  </div>
+
+  <div class="container signin">
+    <p><a [routerLink]="['/users']" routerLinkActive="router-link-active" >Back to user list</a></p>
+  </div>
+</form>
