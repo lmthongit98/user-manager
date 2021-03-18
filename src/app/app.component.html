@@ -10,11 +10,11 @@
         </li>
       </ul>
       <ul class="navbar-nav  mt-2">
-          <li *ngIf="!isLogin.isLogin" class="nav-item mr-2">
+          <li *ngIf="!login" class="nav-item mr-2">
             <a routerLink="/login" routerLinkActive="active" class="btn btn-secondary" href="#">Login</a>
           </li>
 
-          <li *ngIf="isLogin.isLogin" class="nav-item">
+          <li *ngIf="login" class="nav-item">
             <a routerLink="/home" (click)="onLogout()" class="btn btn-secondary" href="#">Logout</a>
           </li>
       </ul>

@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   onLogin(){
     if(this.username == 'admin' && this.password =='admin'){
       this.errorLogin = false;
-      this.userService.login_status.isLogin = true;
+      this.userService.sendLoginStatus(true);
       localStorage.setItem('username', 'admin');
       this.router.navigate(['/users']);
 

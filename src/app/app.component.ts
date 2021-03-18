@@ -1,5 +1,6 @@
 import { UserService } from './services/user.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,17 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 
 
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, OnDestroy{
 
-  isLogin = {
-    isLogin: false
-  }
-
-
-
+  login = false;
+  subscription: Subscription;
 
   constructor(private userService : UserService){
-    this.isLogin = this.userService.login_status;
+    this.subscription = this.userService.getLoginStatus()
+    .subscribe(isLogin => this.login = isLogin);
   }
 
   ngOnInit(): void {
@@ -30,8 +28,13 @@ export class AppComponent implements OnInit{
 
 
   onLogout(){
-    this.isLogin.isLogin = false;
+    this.userService.sendLoginStatus(false);
     localStorage.clear();
   }
+
+  ngOnDestroy() {
+    // unsubscribe to ensure no memory leaks
+    this.subscription.unsubscribe();
+}
 
 }

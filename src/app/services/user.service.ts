@@ -1,5 +1,5 @@
 import { catchError } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
@@ -9,9 +9,7 @@ import { User } from '../models/user';
 })
 export class UserService {
 
-  login_status = {
-    isLogin: false
-  }
+  loginStatus = new Subject<boolean>();
 
   private usersUrl = 'http://localhost:3000/users';  // URL to web api
 
@@ -74,6 +72,14 @@ private handleError<T>(operation = 'operation', result?: T) {
     const url = `${this.usersUrl}/${id}`;
     return this.http.put<User>(url, user, this.httpOptions)
       .pipe(catchError(this.handleError));
+  }
+
+  sendLoginStatus(isLogin : boolean){
+    this.loginStatus.next(isLogin);
+  }
+
+  getLoginStatus():Observable<any>{
+    return this.loginStatus.asObservable();
   }
 
 }
